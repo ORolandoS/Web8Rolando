@@ -15,9 +15,9 @@
   </div>
 </footer>
 
-<script src="js/jquery.js"></script>
-<script src="bootstrap/js/bootstrap.min.js"></script>
-<script src="js/custom.js"></script>
+<script src="<?=base_url();?>js/jquery.js"></script>
+<script src="<?=base_url();?>bootstrap/js/bootstrap.min.js"></script>
+<script src="<?=base_url();?>js/custom.js"></script>
 </body>
 
 </html>
