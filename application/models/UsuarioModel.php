@@ -16,11 +16,19 @@ class UsuarioModel extends CI_Model
     ];
     return $this->db->insert("usuario", $datos);
   }
-  public function seleccionar()
+  public function seleccionar($cantidad = "", $desde = "0", $id_usuario = "")
   {
     $this->db->select('id_usuario,nombres,apellidos,fotografia,usuario,contrasena');
     $this->db->where('activo', 1);
     $this->db->order_by('nombres');
+    if ($cantidad != "")
+    {
+      $this->db->limit($cantidad, $desde);
+    }
+    if ($id_usuario != "")
+    {
+      $this->db->where("id_usuario", $id_usuario);
+    }
     $query = $this->db->get('usuario');
     return $query->result();
   }

@@ -12,7 +12,7 @@
   </thead>
   <tbody>
     <?php
-      $i = 0;
+      $i = $desde;
       foreach ($datosUsuarios as $dp)
       {
         $i++;
@@ -34,3 +34,6 @@
     ?>
   </tbody>
 </table>
+<?php
+  echo $this->pagination->create_links();
+?>

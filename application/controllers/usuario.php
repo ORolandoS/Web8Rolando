@@ -56,7 +56,46 @@ class Usuario extends CI_Controller
     {
       $this->load->model("UsuarioModel");
       $datosUsuarios = $this->UsuarioModel->seleccionar();
+      $desde = $this->uri->segment(3);
+
+      $this->load->library('pagination');
+
+      $config['base_url'] = base_url() .'usuario/listar/';
+      $config['total_rows'] = count($datosUsuarios);
+      $config['per_page'] = 1;
+      $config['num_links'] = 3;
+      $config['uri_segment'] = 3;
+
+      //Estilos de la paginación
+      $config['full_tag_open'] = '<ul class="pagination">';
+      $config['full_tag_close'] = '</ul>';
+      $config['num_tag_open'] = '<li>';
+      $config['num_tag_close'] = '</li>';
+      $config['cur_tag_open'] = '<li class="active"><a>';
+      $config['cur_tag_close'] = '</a></li>';
+      $config['prev_tag_open'] = '<li>';
+      $config['prev_tag_close'] = '</li>';
+
+
+      $config['first_tag_open'] = '<li>';
+      $config['first_tag_close'] = '</li>';
+
+      $config['first_link'] = 'Primero';
+
+
+      $config['next_tag_open'] = '<li>';
+      $config['next_tag_close'] = '</li>';
+
+      $config['last_tag_open'] = '<li>';
+      $config['last_tag_close'] = '</li>';
+
+      $config['last_link'] = 'Último';
+
+      $this->pagination->initialize($config);
+      $datosUsuarios = $this->UsuarioModel->seleccionar($config['per_page'], $desde);
+
       $data = [
+        'desde' => $desde,
         'datosUsuarios' => $datosUsuarios
       ];
 
