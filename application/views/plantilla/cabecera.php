@@ -67,6 +67,17 @@
                   <li><a href="<?=base_url();?>producto/listar">Listar Productos</a></li>
                 </ul>
               </li>
+              <li class="submenu">
+                <a href="#">
+                  <i class="glyphicon glyphicon-user"></i> Usuario
+                  <span class="caret pull-right"></span>
+                </a>
+                <!-- Sub menu -->
+                <ul>
+                  <li><a href="<?=base_url();?>usuario/nuevo">Nuevo usuario</a></li>
+                  <li><a href="<?=base_url();?>usuario/listar">Listar usuario</a></li>
+                </ul>
+              </li>
             </ul>
           </div>
         </div>
