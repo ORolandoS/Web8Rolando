@@ -64,7 +64,7 @@
                 <!-- Sub menu -->
                 <ul>
                   <li><a href="<?=base_url();?>producto/nuevo">Nuevo Producto</a></li>
-                  <li><a href="signup.html">Listar Productos</a></li>
+                  <li><a href="<?=base_url();?>producto/listar">Listar Productos</a></li>
                 </ul>
               </li>
             </ul>
