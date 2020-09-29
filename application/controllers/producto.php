@@ -55,7 +55,44 @@ class Producto extends CI_Controller
     {
       $this->load->model("ProductoModel");
       $datosProductos = $this->ProductoModel->seleccionar();
+      $desde = $this->uri->segment(3);
+
+      $this->load->library('pagination');
+
+      $config['base_url'] = base_url() . 'producto/listar/';
+      $config['total_rows'] = count($datosProductos);
+      $config['per_page'] = 2;
+      $config['num_links'] = 3;
+      $config['uri_segment'] = 3;
+
+      //Estilos de la paginación
+      $config['full_tag_open'] = '<ul class="pagination">';
+      $config['full_tag_close'] = '</ul>';
+      $config['num_tag_open'] = '<li>';
+      $config['num_tag_close'] = '</li>';
+      $config['cur_tag_open'] = '<li class="active"><a>';
+      $config['cur_tag_close'] = '</a></li>';
+      $config['prev_tag_open'] = '<li>';
+      $config['prev_tag_close'] = '</li>';
+
+      $config['first_tag_open'] = '<li>';
+      $config['first_tag_close'] = '</li>';
+
+      $config['first_link'] = 'Primero';
+
+      $config['next_tag_open'] = '<li>';
+      $config['next_tag_close'] = '</li>';
+
+      $config['last_tag_open'] = '<li>';
+      $config['last_tag_close'] = '</li>';
+
+      $config['last_link'] = 'Último';
+
+      $this->pagination->initialize($config);
+      $datosProductos = $this->ProductoModel->seleccionar($config['per_page'], $desde);
+
       $data = [
+        'desde' => $desde,
         'datosProductos' => $datosProductos
       ];
 

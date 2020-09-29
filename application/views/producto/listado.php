@@ -6,12 +6,12 @@
       <th>Precio</th>
       <th>Foto</th>
       <th>Detalle</th>
-      <th></th>
+      <th>Acciones</th>
     </tr>
   </thead>
   <tbody>
     <?php
-      $i = 0;
+      $i = $desde;
       foreach ($datosProductos as $dp)
       {
         $i++;
@@ -32,3 +32,6 @@
     ?>
   </tbody>
 </table>
+<?php
+  echo $this->pagination->create_links();
+?>
