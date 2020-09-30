@@ -13,7 +13,6 @@
       <?php
         }
       ?>
-
     </select>
     <img class="img-thumbnail imagen" rel="<?= $fila; ?>" width="100">
   </td>

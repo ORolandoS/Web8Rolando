@@ -56,7 +56,6 @@ class Venta extends CI_Controller
     echo json_encode($datosMostrar);
   }
 
-
   public function guardar()
   {
     $p = $this->input->post("p");
@@ -87,5 +86,59 @@ class Venta extends CI_Controller
       $this->load->view('venta/error');
     }
     $this->load->view('plantilla/piehtml');
+  }
+
+  public function listar()
+  {
+    $this->load->model("VentaModel");
+    $datosVenta = $this->VentaModel->seleccionar();
+    $desde = $this->uri->segment(3);
+
+    $this->load->library('pagination');
+
+    $config['base_url'] = base_url() . 'venta/listar/';
+    $config['total_rows'] = count($datosVenta);
+    $config['per_page'] = 2;
+    $config['num_links'] = 3;
+    $config['uri_segment'] = 3;
+
+    //Estilos de la paginación
+    $config['full_tag_open'] = '<ul class="pagination">';
+    $config['full_tag_close'] = '</ul>';
+    $config['num_tag_open'] = '<li>';
+    $config['num_tag_close'] = '</li>';
+    $config['cur_tag_open'] = '<li class="active"><a>';
+    $config['cur_tag_close'] = '</a></li>';
+    $config['prev_tag_open'] = '<li>';
+    $config['prev_tag_close'] = '</li>';
+
+    $config['first_tag_open'] = '<li>';
+    $config['first_tag_close'] = '</li>';
+
+    $config['first_link'] = 'Primero';
+
+    $config['next_tag_open'] = '<li>';
+    $config['next_tag_close'] = '</li>';
+
+    $config['last_tag_open'] = '<li>';
+    $config['last_tag_close'] = '</li>';
+
+    $config['last_link'] = 'Último';
+
+    $this->pagination->initialize($config);
+    $VentaModel = $this->VentaModel->seleccionar($config['per_page'], $desde);
+
+    $data = [
+      'desde' => $desde,
+      'datosVentas' => $VentaModel
+    ];
+
+    $dataC = [
+        'titulo' => "Listado de Ventas"
+    ];
+    $this->load->view("plantilla/cabecerahtml");
+    $this->load->view("plantilla/cabecera", $dataC);
+    $this->load->view("venta/listado", $data);
+    $this->load->view("plantilla/piehtml");
   }
 }
