@@ -71,6 +71,29 @@
               </li>
               <li class="submenu">
                 <a href="#">
+                  <i class="glyphicon glyphicon-list"></i> Compras
+                  <span class="caret pull-right"></span>
+                </a>
+                <!-- Sub menu -->
+                <ul>
+                  <li><a href="<?= base_url(); ?>compra/nuevo">Nuevo Compra</a></li>
+                  <li><a href="<?= base_url(); ?>compra/listar">Listar Compras</a></li>
+                </ul>
+              </li>
+
+              <li class="submenu">
+                <a href="#">
+                  <i class="glyphicon glyphicon-list"></i> Venta
+                  <span class="caret pull-right"></span>
+                </a>
+                <!-- Sub menu -->
+                <ul>
+                  <li><a href="<?= base_url(); ?>venta/nuevo">Nueva Venta</a></li>
+                  <li><a href="<?= base_url(); ?>venta/listar">Listar Ventas</a></li>
+                </ul>
+              </li>
+              <li class="submenu">
+                <a href="#">
                   <i class="glyphicon glyphicon-user"></i> Usuario
                   <span class="caret pull-right"></span>
                 </a>
@@ -80,6 +103,7 @@
                   <li><a href="<?=base_url();?>usuario/listar">Listar usuario</a></li>
                 </ul>
               </li>
+
             </ul>
           </div>
         </div>
