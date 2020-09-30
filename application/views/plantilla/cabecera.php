@@ -27,10 +27,12 @@
               <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
                 <ul class="nav navbar-nav">
                   <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Rolando Aruquipa<b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle"
+                      data-toggle="dropdown"><?= $this->session->nombres . " " . $this->session->apellidos; ?><b
+                        class="caret"></b></a>
                     <ul class="dropdown-menu animated fadeInUp">
-                      <li><a href="profile.html">Profile</a></li>
-                      <li><a href="login.html">Logout</a></li>
+                      <!-- <li><a href="profile.html">Profile</a></li> -->
+                      <li><a href="<?=base_url();?>login/salir">Salir</a></li>
                     </ul>
                   </li>
                 </ul>
