@@ -38,9 +38,11 @@
           <div class="box">
             <div class="content-wrap">
               <h6>Acceso al Sistema</h6>
+              <?php echo validation_errors(); ?>
               <form action="<?= base_url() ?>login/acceder" method="POST">
                 <input class="form-control" type="text" placeholder="Usuario" name="Usuario">
                 <input class="form-control" type="password" placeholder="Contrasena" name="Contrasena">
+                <input class="form-control" type="password" placeholder="Repita la Contrasena" name="ContrasenaDOS">
                 <input type="submit" class="btn btn-primary signup" value="Ingresar">
               </form>
             </div>
