@@ -94,6 +94,18 @@
               </li>
               <li class="submenu">
                 <a href="#">
+                  <i class="glyphicon glyphicon-file"></i> Reporte
+                  <span class="caret pull-right"></span>
+                </a>
+                <!-- Sub menu -->
+                <ul>
+                  <li><a href="<?= base_url(); ?>reporte/venta">Reporte de Venta</a></li>
+                  <!-- <li><a href="<?= base_url(); ?>venta/listar">Listar Ventas</a></li> -->
+                </ul>
+              </li>
+
+              <li class="submenu">
+                <a href="#">
                   <i class="glyphicon glyphicon-user"></i> Usuario
                   <span class="caret pull-right"></span>
                 </a>
